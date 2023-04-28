@@ -187,7 +187,9 @@ def predict(text):
 def text_analysis(text):
     text = [text.strip().split()]
 
-    words, slot_preds, intent_pred = predict(text)[0][0],  predict(text)[1][0],  predict(text)[2][0]
+    predictions = predict(text)
+
+    words, slot_preds, intent_pred = predictions[0][0],  predictions[1][0],  predictions[2][0]
 
     slot_tokens = []    
 
