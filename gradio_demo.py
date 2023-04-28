@@ -196,10 +196,14 @@ def text_analysis(text):
     for word, pred in zip(words, slot_preds):
         if pred == 'O':
             slot_tokens.extend([(word, None), (" ", None)])
-        elif pred[0] == 'I':
+            
+        # token with label's prefix' "I-XXX": will be combined their corresponded "B-XXX"
+        elif pred[0] == 'I': 
             added_tokens = list(slot_tokens[-2]) 
             added_tokens[0] += f' {word}'
             slot_tokens[-2] = tuple(added_tokens)
+        
+        # token with label's prefix "B-XXX" : remove "B-" 
         else:
             slot_tokens.extend([(word, pred[2:]), (" ", None)])
     
