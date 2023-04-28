@@ -17,7 +17,12 @@ def get_device(pred_config):
 
 
 def get_args(pred_config):
-    return torch.load(os.path.join(pred_config.model_dir, "training_args.bin"))
+    args = torch.load(os.path.join(pred_config.model_dir, "training_args.bin"))
+
+    args.model_dir = 'JointBERT-CRF_PhoBERTencoder'
+    args.data_dir = 'PhoATIS'
+
+    return args
 
 
 def load_model(pred_config, args, device):

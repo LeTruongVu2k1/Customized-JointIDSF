@@ -1,9 +1,11 @@
-torch==1.6.0
-transformers==4.1.1
-seqeval==0.0.12
-pytorch-crf==0.7.2
-tensorflow==2.2.0
+torch==2.0.0
+transformers
+seqeval
+pytorch-crf
+tensorflow
 sentencepiece
 tensorboard
-numpy
+numpy>=1.21.2
 tqdm
+typing_extensions
+protobuf<5,>=3.20.3
