@@ -204,8 +204,11 @@ def text_analysis(text):
             slot_tokens[-2] = tuple(added_tokens)
         
         # token with label's prefix "B-XXX" : remove "B-" 
-        else:
+        elif pred[0] == 'B':
             slot_tokens.extend([(word, pred[2:]), (" ", None)])
+           
+        else: # PAD or UNK tags
+          slot_tokens.extend([(word, pred), (" ", None)])
     
     intent_label = intent_label_lst[intent_pred]
 
